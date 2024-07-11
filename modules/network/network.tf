@@ -12,7 +12,7 @@ resource "google_compute_subnetwork" "ga-subnetwork" {
   region = var.project_region
   description = "ga-subnet-1a"
   ip_cidr_range = "${var.ip_cidr_range}"
-  network       = google_compute_network.benhriz-vpc.self_link
+  network       = google_compute_network.ga-vpc.self_link
 
   lifecycle {
     ignore_changes = all
