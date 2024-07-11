@@ -58,3 +58,10 @@ module "gke" {
 
   depends_on = [ module.pubsub, module.network ]
 }
+
+// import spanner module
+module "spanner" {
+  source       = "./modules/spanner"
+
+}
+
