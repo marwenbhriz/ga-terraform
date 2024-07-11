@@ -19,8 +19,11 @@ resource "google_compute_instance" "default" {
       // Include this section to give the VM an external ip address
     //}
   }
+
+  metadata_startup_script = "${file("./compute_instance_startup.sh")}"
+
   #, "http-server","https-server", "lb-health-check"
-  tags = [var.firewall_name, "http-server","https-server"]
+  tags = [var.firewall_name]
 
   lifecycle {
    prevent_destroy = false
