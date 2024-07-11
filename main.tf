@@ -4,35 +4,47 @@ module "hello" {
 }
 
 // import pubsub module
-#module "pubsub" {
-#  source       = "./modules/pubsub"
-#}
-
-// import address module
-#module "address" {
-  #source       = "./modules/address"
-  #project_name = var.accounts.project
-#}
+module "pubsub" {
+  source       = "./modules/pubsub"
+}
 
 // import network module
-#module "network" {
-  #source       = "./modules/network"
-  #project_name = var.accounts.project
-  #project_region = var.accounts.region
-#}
+module "network" {
+  source       = "./modules/network"
+  project_name = var.accounts.project
+  project_region = var.accounts.region
+}
 
 // import gcr module
-#module "gcr" {
-  #source       = "./modules/gcr"
-  #project_name = var.accounts.project
-  #project_region = var.accounts.region
-#}
-
-// import gcs module
-/*
-module "gcs" {
-  source       = "./modules/gcs"
+module "gcr" {
+  source       = "./modules/gcr"
+  project_name = var.accounts.project
   project_region = var.accounts.region
+}
+
+// import jump ops firewall module
+module "firewall" {
+  source       = "./modules/firewall"
+  project_name = var.accounts.project
+  network_name = module.network.network_name
+
+  // need to wait until network modules creation
+  depends_on = [ module.network ]
+}
+
+
+// import gce module
+
+module "gce" {
+  source       = "./modules/gce"
+  project_name = var.accounts.project
+  network = module.network.network
+  firewall_name = module.firewall.firewall_name
+  subnetwork = module.network.subnetwork
+  project_zone = var.accounts.zone
+
+  // need to wait until firewall and network modules creation
+  depends_on = [ module.network ]
 }
 
 // import gke module
@@ -46,4 +58,3 @@ module "gke" {
 
   depends_on = [ module.pubsub, module.network ]
 }
-*/
