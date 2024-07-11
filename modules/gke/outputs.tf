@@ -1,5 +1,5 @@
 output "name" {
-  value = google_container_cluster.benhriz-cluster.name
+  value = google_container_cluster.ga-cluster.name
 }
 
 output "token" {

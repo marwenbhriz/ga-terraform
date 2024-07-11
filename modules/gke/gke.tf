@@ -70,7 +70,7 @@ resource "google_container_cluster" "ga-cluster" {
   private_cluster_config {
     enable_private_endpoint      = true
     enable_private_nodes         = true
-    master_ipv4_cidr_block       = "10.0.1.0/24"
+    master_ipv4_cidr_block       = "10.0.1.0/28"
   }
 }
 
