@@ -20,7 +20,7 @@ resource "google_compute_instance" "default" {
     //}
   }
 
-  metadata_startup_script = "${file("./compute_instance_startup.sh")}"
+  metadata_startup_script = "${path.module}/compute_instance_startup.sh"
 
   #, "http-server","https-server", "lb-health-check"
   tags = [var.firewall_name]
