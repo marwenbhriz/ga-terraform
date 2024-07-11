@@ -9,13 +9,12 @@ data google_container_engine_versions version {
 data "google_compute_default_service_account" "default" {
 }
 
-resource "google_container_cluster" "benhriz-cluster" {
+resource "google_container_cluster" "ga-cluster" {
   provider                  = google-beta
   name                      = var.cluster_name
   location                  = var.project_region
   project                   = var.project_name
   node_locations            = [ for location in var.locations : "${location}" ]
-
   initial_node_count        = 1
   default_max_pods_per_node = 100
   network                   = var.network
@@ -66,6 +65,12 @@ resource "google_container_cluster" "benhriz-cluster" {
         enabled = true
         topic   = var.topic_id
     }
+  }
+
+  private_cluster_config {
+    enable_private_endpoint      = true
+    enable_private_nodes         = true
+    master_ipv4_cidr_block       = "10.0.1.0/24"
   }
 }
 
