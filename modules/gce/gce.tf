@@ -1,7 +1,7 @@
 resource "google_compute_instance" "default" {
 
   name         = "jump-ops-${format("%02d", count.index + 1)}"
-  machine_type = "e2-standard-4"
+  machine_type = "e2-small"
   project      = var.project_name
   zone         = var.project_zone
   count        = 1
