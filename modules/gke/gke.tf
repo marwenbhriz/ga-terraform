@@ -77,7 +77,7 @@ resource "google_container_cluster" "ga-cluster" {
 resource "google_container_node_pool" "default" {
   name              = "nodepool-${format("%02d", count.index + 1)}"
   location          = var.project_region
-  cluster           = google_container_cluster.benhriz-cluster.id
+  cluster           = google_container_cluster.ga-cluster.id
   node_count        = 1
   max_pods_per_node = 20
   count             = 1
