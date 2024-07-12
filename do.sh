@@ -123,5 +123,6 @@ ssh_iap() {
     gcloud projects add-iam-policy-binding grasys-study \
         --member=user:benhriz@grasys.io \
         --role=roles/compute.instanceAdmin.v1
+}
 
 $*
