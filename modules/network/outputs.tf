@@ -17,3 +17,7 @@ output "self_link" {
 output "id" {
   value = google_compute_network.ga-vpc.id
 }
+
+output "ip_cidr_range" {
+  value = google_compute_subnetwork.ga-subnetwork.ip_cidr_range
+}

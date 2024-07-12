@@ -8,9 +8,21 @@ resource "google_compute_instance" "default" {
 
   boot_disk {
     initialize_params {
-      image = "centos-cloud/centos-7"
+      image = "centos-stream-9-v20240709"
     }
   }
+
+  shielded_instance_config {
+    enable_secure_boot          = true
+    enable_vtpm                 = true
+    enable_integrity_monitoring = true
+  }
+
+  scheduling {
+    preemptible       = true
+    automatic_restart = false
+  }
+
   network_interface {
     network    = var.network
     subnetwork = var.subnetwork

@@ -60,3 +60,11 @@ variable "subnetwork" {
 variable "topic_id" {
   type = string
 }
+
+variable "ip_cidr_range" {
+  type = string
+}
+
+variable "authorized_ipv4_cidr_block" {
+  type = string
+}

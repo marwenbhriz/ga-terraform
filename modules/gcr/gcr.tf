@@ -2,7 +2,7 @@
 resource "google_artifact_registry_repository" "ga-repo" {
   location      = var.project_region
   repository_id = var.repository_id
-  description   = "benhriz docker repository"
+  description   = "ga docker repository"
   format        = "DOCKER"
   mode          = "REMOTE_REPOSITORY"
   project = var.project_name
