@@ -27,9 +27,9 @@ resource "google_compute_instance" "default" {
     network    = var.network
     subnetwork = var.subnetwork
     
-    //access_config {
+    access_config {
       // Include this section to give the VM an external ip address
-    //}
+    }
   }
 
   metadata_startup_script = "${path.module}/compute_instance_startup.sh"
