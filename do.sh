@@ -108,6 +108,20 @@ generate_diagram() {
 
 }
 
+ssh_iap() {
+    gcloud compute firewall-rules create allow-ssh-ingress-from-iap \
+        --direction=INGRESS \
+        --action=allow \
+        --rules=tcp:22 \
+        --source-ranges=113.154.19.225 # marwen home ip
+        }
 
+    gcloud projects add-iam-policy-binding grasys-study \
+        --member=user:benhriz@grasys.io \
+        --role=roles/iap.tunnelResourceAccessor
+
+    gcloud projects add-iam-policy-binding grasys-study \
+        --member=user:benhriz@grasys.io \
+        --role=roles/compute.instanceAdmin.v1
 
 $*

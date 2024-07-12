@@ -54,7 +54,7 @@ module "gke" {
   network = module.network.network
   subnetwork = module.network.subnetwork
   topic_id = module.pubsub.topic_id
-  ip_cidr_range = module.network.ip_cidr_range
+  #ip_cidr_range = module.network.ip_cidr_range
   authorized_ipv4_cidr_block = "${module.gce.ip[0]}/32"
 
   depends_on = [ module.pubsub, module.network, module.gce ]

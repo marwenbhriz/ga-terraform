@@ -63,6 +63,7 @@ variable "topic_id" {
 
 variable "ip_cidr_range" {
   type = string
+  default = "10.0.2.0/28"
 }
 
 variable "authorized_ipv4_cidr_block" {
