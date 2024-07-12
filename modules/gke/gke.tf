@@ -68,7 +68,7 @@ resource "google_container_cluster" "ga-cluster" {
   }
 
   dynamic "master_authorized_networks_config" {
-    for_each = var.authorized_ipv4_cidr_block != null ? [var.authorized_ipv4_cidr_block] : []
+    for_each = var.authorized_ipv4_cidr_block != null ? [var.authorized_ipv4_cidr_block[0]] : []
     content {
       cidr_blocks {
         cidr_block   = master_authorized_networks_config.value
