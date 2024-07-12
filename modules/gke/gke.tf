@@ -68,7 +68,7 @@ resource "google_container_cluster" "ga-cluster" {
   }
 
   dynamic "master_authorized_networks_config" {
-    for_each = var.authorized_ipv4_cidr_block != null ? [var.authorized_ipv4_cidr_block[0]] : []
+    for_each = var.authorized_ipv4_cidr_block != null ? [var.authorized_ipv4_cidr_block] : []
     content {
       cidr_blocks {
         cidr_block   = master_authorized_networks_config.value
@@ -83,10 +83,10 @@ resource "google_container_cluster" "ga-cluster" {
     master_ipv4_cidr_block       = var.ip_cidr_range
   }
 
-  master_authorized_networks_config {
-    #master_authorized_networks = var.network
-    #enable_master_authorized_networks = var.network
-  }
+  //master_authorized_networks_config {
+    //master_authorized_networks = var.network
+    //enable_master_authorized_networks = var.network
+  //}
 
   maintenance_policy {
     daily_maintenance_window {
