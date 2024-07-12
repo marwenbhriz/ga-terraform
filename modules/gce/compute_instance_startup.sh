@@ -16,4 +16,6 @@ curl --silent --location --fail --remote-name "${url}"
 # Use sudo if needed, empty string if not
 sudo_command=$(command -v sudo)
 "${sudo_command}" install -m 755 kubectl /usr/local/bin
+# insall gke gcloud auth plugin
+sudo yum install -y google-cloud-sdk-gke-gcloud-auth-plugin
 echo ✓
