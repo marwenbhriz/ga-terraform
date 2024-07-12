@@ -4,8 +4,23 @@ hello:
 address:
   - 'terraform/modules/address/**'
 
+firewall:
+  - 'terraform/modules/firewall/**'
+
 gcr:
   - 'terraform/modules/gcr/**'
 
+gce:
+  - 'terraform/modules/gce/**'
+
 network:
   - 'terraform/modules/network/**'
+
+gke:
+  - 'terraform/modules/gke/**'
+
+spanner:
+  - 'terraform/modules/spanner/**'
+
+pubsub:
+  - 'terraform/modules/pubsub/**'
