@@ -10,3 +10,11 @@ variable "database_name" {
 variable "network" {
   type = string
 }
+
+variable "network_self_link" {
+  type = string
+}
+
+variable "network_id" {
+  type = string
+}
