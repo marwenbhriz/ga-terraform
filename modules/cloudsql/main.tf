@@ -1,4 +1,4 @@
-resource "random_id" "mysql_grasysuser_password" {
+resource "random_id" "mysql_gauser_password" {
   byte_length = 12
 }
 
@@ -16,8 +16,8 @@ resource "google_sql_database_instance" "default" {
       ipv4_enabled    = false
       private_network = var.network
       enable_private_path_for_google_cloud_services = false
-      #require_ssl = false 
-      ssl_mode = false
+      require_ssl = false 
+      #ssl_mode = false
 
     }
     backup_configuration {
@@ -45,10 +45,10 @@ resource "google_sql_database" "database" {
   collation = "utf8_general_ci"
 }
 
-resource "google_sql_user" "grasysuser" {
+resource "google_sql_user" "gauser" {
   name     = "gauser"
   instance = google_sql_database_instance.default.name
   host     = "%"
-  password = "${random_id.mysql_grasysuser_password.b64_std}"
+  password = "${random_id.mysql_gauser_password.b64_std}"
 }
 
