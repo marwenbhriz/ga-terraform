@@ -1,3 +1,4 @@
+/*
 // import hello module
 module "hello" {
   source       = "./modules/hello"
@@ -72,8 +73,7 @@ module "cloudsql" {
   network           = module.network.network
   network_self_link = module.network.self_link
   network_id        = module.network.id
+
   depends_on        = [ module.network ]
-
 }
-
-
+*/
