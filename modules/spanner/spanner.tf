@@ -21,7 +21,7 @@ resource "google_spanner_database" "database" {
   name     = "ga-database"
   version_retention_period = "3d"
   ddl = [
-    "CREATE TABLE books (bookID INT64 NOT NULL,) PRIMARY KEY(bookID)",
+    "CREATE TABLE books (Id INT64 NOT NULL,) PRIMARY KEY(Id)",
   ]
   deletion_protection = false
 }
