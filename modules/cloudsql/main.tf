@@ -16,7 +16,8 @@ resource "google_sql_database_instance" "default" {
       ipv4_enabled    = false
       private_network = var.network
       enable_private_path_for_google_cloud_services = false
-      require_ssl = false 
+      #require_ssl = false 
+      ssl_mode = false
 
     }
     backup_configuration {
