@@ -33,6 +33,20 @@ module "firewall" {
   depends_on   = [ module.network ]
 }
 
+
+// import gce module
+module "gce" {
+  source        = "./modules/gce"
+  project_name  = var.accounts.project
+  network       = module.network.network
+  firewall_name = module.firewall.firewall_name
+  subnetwork    = module.network.subnetwork
+  project_zone  = var.accounts.zone
+
+  // need to wait until firewall and network modules creation
+  depends_on    = [ module.network, module.address, module.firewall ]
+}
+
 // import gke module
 module "gke" {
   source                     = "./modules/gke"
@@ -46,21 +60,6 @@ module "gke" {
 
   depends_on                 = [ module.pubsub, module.network, module.gce ]
 }
-
-
-// import gce module
-module "gce" {
-  source        = "./modules/gce"
-  project_name  = var.accounts.project
-  network       = module.network.network
-  firewall_name = module.firewall.firewall_name
-  subnetwork    = module.network.subnetwork
-  project_zone  = var.accounts.zone
-
-  // need to wait until firewall and network modules creation
-  depends_on    = [ module.network, module.address, module.firewall, module.gke ]
-}
-
 
 // import spanner module
 module "cloudsql" {
