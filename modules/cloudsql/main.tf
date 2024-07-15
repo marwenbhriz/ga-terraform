@@ -34,7 +34,6 @@ resource "google_sql_database_instance" "default" {
       //require_ssl = false 
       #ssl_mode = false
     //}
-
     backup_configuration {
       backup_retention_settings {
         retained_backups = 7
