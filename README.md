@@ -14,6 +14,10 @@ Google Cloud Platform Account: You need a GCP account with appropriate permissio
 Terraform: Install Terraform on your local machine or CI/CD environment. Refer to Terraform Installation Guide for instructions.
 GitHub Actions: Familiarity with setting up GitHub Actions workflows. Refer to GitHub Actions Documentation for more details.
 
+## Workflow
+
+### Terraform Plan
+
 ## Objective
 
 Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
@@ -27,3 +31,15 @@ Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
 ## Troubleshooting
 
 ## Contact
+
+![plot](./diagram.png)
+
+
+gcloud compute ssh --zone "asia-northeast1-a" "jump-ops-01" --project "grasys-study"
+
+from vm : 
+
+gcloud auth login
+gcloud components install kubectl
+
+gcloud container clusters get-credentials ga-gke --region asia-northeast1 --project grasys-study

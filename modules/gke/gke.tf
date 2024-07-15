@@ -67,21 +67,21 @@ resource "google_container_cluster" "ga-cluster" {
     }
   }
 
-  dynamic "master_authorized_networks_config" {
-    for_each = var.authorized_ipv4_cidr_block != null ? [var.authorized_ipv4_cidr_block] : []
-    content {
-      cidr_blocks {
-        cidr_block   = master_authorized_networks_config.value
-        display_name = "External Control Plane access"
-      }
-    }
-  }
+  //dynamic "master_authorized_networks_config" {
+    //for_each = var.authorized_ipv4_cidr_block != null ? [var.authorized_ipv4_cidr_block] : []
+    //content {
+      //cidr_blocks {
+        //cidr_block   = master_authorized_networks_config.value
+        //display_name = "External Control Plane access"
+      //}
+    //}
+  //}
 
-  private_cluster_config {
-    enable_private_endpoint      = true
-    enable_private_nodes         = true
-    master_ipv4_cidr_block       = var.ip_cidr_range
-  }
+  #private_cluster_config {
+    #enable_private_endpoint      = true
+    #enable_private_nodes         = true
+    #master_ipv4_cidr_block       = var.ip_cidr_range
+  #}
 
   //master_authorized_networks_config {
     //master_authorized_networks = var.network
