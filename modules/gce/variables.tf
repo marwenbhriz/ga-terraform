@@ -17,7 +17,3 @@ variable "subnetwork" {
 variable "firewall_name" {
   type = string
 }
-
-variable "address" {
-  type = string
-}
