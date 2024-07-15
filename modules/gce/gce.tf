@@ -29,6 +29,7 @@ resource "google_compute_instance" "default" {
     
     access_config {
       // Include this section to give the VM an external ip address
+      nat_ip = var.address
     }
   }
 
