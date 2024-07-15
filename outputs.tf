@@ -1,3 +1,4 @@
+/*
 output "database_ip" {
   value = module.cloudsql.public_ip_address
 }
@@ -13,4 +14,4 @@ output "database_name" {
 output "ops_ip" {
   value = module.address.address
 }
-
+*/
