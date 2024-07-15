@@ -11,6 +11,6 @@ output "database_name" {
 }
 
 output "ops_ip" {
-  value = module.address.a
+  value = module.address.address
 }
 
