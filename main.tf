@@ -9,11 +9,11 @@
 //}
 
 // import network module
-module "network" {
-  source         = "./modules/network"
-  project_name   = var.accounts.project
-  project_region = var.accounts.region
-}
+//module "network" {
+//  source         = "./modules/network"
+//  project_name   = var.accounts.project
+//  project_region = var.accounts.region
+//}
 
 // import gcr module
 //module "gcr" {
@@ -67,14 +67,14 @@ module "network" {
 
 
 // import spanner module
-module "cloudsql" {
-  source            = "./modules/cloudsql"
-  region            = var.accounts.region
-  network           = module.network.network
-  network_self_link = module.network.self_link
-  network_id        = module.network.id
+//module "cloudsql" {
+//  source            = "./modules/cloudsql"
+//  region            = var.accounts.region
+//  network           = module.network.network
+//  network_self_link = module.network.self_link
+//  network_id        = module.network.id
 
-  depends_on        = [ module.network ]
-}
+//  depends_on        = [ module.network ]
+//}
 
 

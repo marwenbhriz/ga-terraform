@@ -11,11 +11,11 @@ resource "google_compute_global_address" "private_ip_address" {
   network       = var.network_self_link
 }
 
-resource "google_service_networking_connection" "ga-private-vpc-connection" {
-  network                 = var.network
-  service                 = "servicenetworking.googleapis.com"
-  reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
-}
+//resource "google_service_networking_connection" "ga-private-vpc-connection" {
+//  network                 = var.network
+//  service                 = "servicenetworking.googleapis.com"
+//  reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
+//}
 
 resource "google_sql_database_instance" "default" {
   name = var.database_name
@@ -27,14 +27,14 @@ resource "google_sql_database_instance" "default" {
     disk_autoresize = true
     disk_autoresize_limit = 0
     disk_type = "PD_SSD"
-    ip_configuration {
-      ipv4_enabled    = false
-      private_network = var.network_id
-      enable_private_path_for_google_cloud_services = false
-      require_ssl = false 
+    //ip_configuration {
+      //ipv4_enabled    = false
+      //private_network = var.network_id
+      //enable_private_path_for_google_cloud_services = false
+      //require_ssl = false 
       #ssl_mode = false
+    //}
 
-    }
     backup_configuration {
       backup_retention_settings {
         retained_backups = 7
