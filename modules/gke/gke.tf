@@ -41,12 +41,11 @@ resource "google_container_cluster" "ga-cluster" {
     enabled = true
     resource_limits {
       resource_type = "cpu"
-      minimum       = 1
-      maximum       = 6
+      maximum       = 12
     }
     resource_limits {
       resource_type = "memory"
-      maximum       = 10
+      maximum       = 16
     }
   }
 
