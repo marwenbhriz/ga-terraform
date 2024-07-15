@@ -23,7 +23,7 @@ variable "tags" {
 
 variable "machine_type" {
   type = string
-  default = "e2-small"
+  default = "e2-standard-4"
 }
 
 variable "networking_mode" {
