@@ -3,7 +3,7 @@ output "database_ip" {
 }
 
 output "database_password" {
-  value = nonsensitive(module.cloudsql.password)
+  value = module.cloudsql.password
 }
 
 output "database_name" {
