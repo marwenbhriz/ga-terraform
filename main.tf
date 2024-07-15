@@ -62,7 +62,6 @@ module "gke" {
 }
 
 
-
 // import spanner module
 //module "spanner" {
 //  source       = "./modules/spanner"
