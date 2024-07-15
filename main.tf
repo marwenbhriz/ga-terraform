@@ -61,16 +61,7 @@ module "gke" {
   depends_on                 = [ module.pubsub, module.network, module.gce ]
 }
 
-// import spanner module
-module "cloudsql" {
-  source            = "./modules/cloudsql"
-  region            = var.accounts.region
-  network           = module.network.network
-  network_self_link = module.network.self_link
-  network_id        = module.network.id
 
-  depends_on        = [ module.network ]
-}
 
 // import spanner module
 //module "spanner" {
