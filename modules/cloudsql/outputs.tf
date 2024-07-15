@@ -1,5 +1,5 @@
 output "password" {
-  value = google_sql_user.gauser.password
+  value = nonsensitive(google_sql_user.gauser.password)
 }
 
 output "database_name" {
