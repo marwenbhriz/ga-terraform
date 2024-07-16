@@ -53,7 +53,7 @@ resource "google_sql_database_instance" "default" {
 }
 
 resource "google_sql_database" "database" {
-  name      = "tasks"
+  name      = "users"
   instance  = google_sql_database_instance.default.name
   charset   = "utf8"
   collation = "utf8_general_ci"
