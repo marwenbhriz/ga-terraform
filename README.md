@@ -57,3 +57,8 @@ and important point due security issue we need to prevent access for jump ops fr
 ```sh
 ./do.sh ssh_iap
 ```
+
+### Need work
+> Note. due i dont have a domain name, its perfect to have gke ingress to use our product, instead i used a LB ip, but recomanded to use gke ingress and genrate certificate for that.
+
+> Note. There is a limitation in whole project due cost and permissions, but i try in this demo in show how my idea about setup infra and building cicd with the existent stack.
