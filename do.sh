@@ -117,11 +117,11 @@ ssh_iap() {
         }
 
     gcloud projects add-iam-policy-binding grasys-study \
-        --member=user:benhriz@grasys.io \
+        --member=user: \ # email
         --role=roles/iap.tunnelResourceAccessor
 
     gcloud projects add-iam-policy-binding grasys-study \
-        --member=user:benhriz@grasys.io \
+        --member= \ # email
         --role=roles/compute.instanceAdmin.v1
 }
 

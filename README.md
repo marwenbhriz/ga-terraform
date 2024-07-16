@@ -16,30 +16,42 @@ GitHub Actions: Familiarity with setting up GitHub Actions workflows. Refer to G
 
 ## Workflow
 
+![plot](./img/diagram.png)
+
 ### Terraform Plan
 
-## Objective
+![plot](./img/img1.png)
 
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+### Terraform Apply
 
-## Contributing
+![plot](./img/img2.png)
 
-## Acknowledgments
+### Slack notification
 
-## Troubleshooting
+![plot](./img/img3.png)
 
-## Contact
+### Tools
+we estimate the cost of infra we are working to setup, by running this command.
 
-![plot](./diagram.png)
+```sh
+./do.sh generate_cost_report JPY|USD
+```
 
+and also we scan and genrate a security check.
 
-gcloud compute ssh --zone "asia-northeast1-a" "jump-ops-01" --project "grasys-study"
+```sh
+./do.sh audit_infra JSON|XML
+```
 
-from vm : 
+and genrate a diagram of infra from tfsatat
 
-gcloud auth login
-gcloud components install kubectl
+```sh
+./do.sh generate_diagram TFSTATE
+```
+generate_diagram
 
-gcloud container clusters get-credentials ga-gke --region asia-northeast1 --project grasys-study
+and important point due security issue we need to prevent access for jump ops from public so we need to fix iap for our ip and username for we can access to jump ops and then gke cluster.
+
+```sh
+./do.sh ssh_iap
+```
