@@ -1,3 +1,4 @@
+/*
 // import pubsub module
 module "pubsub" {
   source       = "./modules/pubsub"
@@ -76,3 +77,4 @@ module "cloudsql" {
 //module "spanner" {
 //  source       = "./modules/spanner"
 //}
+*/
